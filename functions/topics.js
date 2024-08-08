@@ -1,39 +1,42 @@
 const express = require('express');
-const cors = require('cors');
+const cors = require('cors'); // Assuming you keep cors for frontend access
 const bodyParser = require('body-parser');
-const fetch = require('node-fetch');
-// const axios = require('axios');
-require('dotenv').config();
+require('dotenv').config(); // Assuming proper .env setup in Netlify
 
 const app = express();
 app.use(bodyParser.json());
-
-app.use(cors());
+// Adjust CORS configuration if needed (consider using cors library for more control)
+// app.use(cors({ origin: 'http://localhost:3000/' }));
 
 exports.handler = async (event, context) => {
     const res = {
         statusCode: 200,
         headers: {
             'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': 'http://localhost:3000/',
+            // Adjust CORS headers based on your deployment setup
+            // 'Access-Control-Allow-Origin': 'http://localhost:3000/',
         },
         body: '',
     };
-    const req = JSON.parse(event.body); // Parse the request body
-    const message = req.message;
 
-    const options = {
-        method: 'POST',
-        headers: {
-            'Authorization': `Bearer ${process.env.REACT_APP_OPENAI_KEY}`,
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            model: 'gpt-3.5-turbo',
-            response_format: { type: "json_object" },
-            messages: [{
-                role: "system",
-                content: `I ask you a finance question and you provide JSON object with up to 5 topics for my 2 Person podcast in Spanish: 
+    try {
+        const fetch = await import('node-fetch');
+
+        const req = JSON.parse(event.body); // Parse the request body
+        const message = req.message;
+
+        const options = {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${process.env.REACT_APP_OPENAI_KEY}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                model: 'gpt-3.5-turbo',
+                response_format: { type: "json_object" },
+                messages: [{
+                    role: "system",
+                    content: `I ask you a finance question and you provide JSON object with up to 5 topics for my 2 Person podcast in Spanish: 
                     {
                         "topics": [
                             {
@@ -47,23 +50,25 @@ exports.handler = async (event, context) => {
                             },
                         ]
                     }`,
-            },
-            { role: "user", message },
-            ],
-            max_tokens: 600,
-        })
-    };
+                },
+                { role: "user", message },
+                ],
+                max_tokens: 600,
+            }),
+        };
 
-    try {
-        const response = await fetch('https://api.openai.com/v1/chat/completions', options)
+        const response = await fetch('https://api.openai.com/v1/chat/completions', options);
         const data = await response.json();
-        res.send(data)
+        res.send(data);
     } catch (error) {
-        console.error(error)
+        console.error(error);
+        // Consider returning a more informative error response to the frontend here
+        res.statusCode = 500; // Set appropriate error status code
+        res.body = JSON.stringify({ message: 'An error occurred' });
     }
-    return res;
-}
 
+    return res;
+};
 
 // Local server testing
 // const PORT = 8000
