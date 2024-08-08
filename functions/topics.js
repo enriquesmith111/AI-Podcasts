@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 // app.use(cors({ origin: 'http://localhost:3000/' }));
 
 exports.handler = async (event, context) => {
-    const req = JSON.parse(event.body); // Parse the request body
+    const req = event; // Parse the request body
     const message = req.message;
 
     const res = {
