@@ -3,7 +3,7 @@ const cors = require('cors'); // Assuming you keep cors for frontend access
 const bodyParser = require('body-parser');
 require('dotenv').config(); // Assuming proper .env setup in Netlify
 
-app.use(cors({ origin: 'https://main--ai-podcasts.netlify.app' })); // Replace with your frontend origin
+app.use(cors({ origin: 'https://ai-podcasts.netlify.app/' })); // Replace with your frontend origin
 
 
 const app = express();
@@ -17,7 +17,7 @@ exports.handler = async (event, context) => {
         headers: {
             'Content-Type': 'application/json',
             // Adjust CORS headers based on your deployment setup
-            'Access-Control-Allow-Origin': 'https://main--ai-podcasts.netlify.app',
+            'Access-Control-Allow-Origin': 'https://ai-podcasts.netlify.app/',
         },
         body: '',
     };

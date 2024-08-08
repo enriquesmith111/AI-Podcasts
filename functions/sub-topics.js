@@ -8,14 +8,14 @@ require('dotenv').config();
 const app = express();
 app.use(bodyParser.json());
 
-app.use(cors({ origin: 'https://main--ai-podcasts.netlify.app' })); // Replace with your frontend origin
+app.use(cors({ origin: 'https://ai-podcasts.netlify.app/' })); // Replace with your frontend origin
 
 exports.handler = async (event, context) => {
     const res = {
         statusCode: 200,
         headers: {
             'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': 'https://main--ai-podcasts.netlify.app',
+            'Access-Control-Allow-Origin': 'https://ai-podcasts.netlify.app/',
         },
         body: '',
     };
