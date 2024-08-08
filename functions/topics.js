@@ -19,7 +19,6 @@ exports.handler = async (event, context) => {
         },
         body: '',
     };
-
     const req = JSON.parse(event.body); // Parse the request body
     const message = req.message;
 
