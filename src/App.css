@@ -1,38 +1,103 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
   display: flex;
   flex-direction: column;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.header-input {
+  display: flex;
+  width: 50%;
+  margin-bottom: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header-input input {
+  width: -webkit-fill-available;
+  height: 30px;
+}
+
+.top-input button {
+  display: flex;
+  height: 36px;
+  align-items: center;
+}
+
+.all-topics {
+  max-height: 85vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.left-topics {
+  height: 81vh;
+  padding: 1rem;
+  width: 40vw;
+  gap: 2rem;
+  background-color: cornsilk;
+  border-radius: 5px;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.left-topic-button-and-text {
+  border-radius: 5px;
+  background-color: rgb(139, 139, 218);
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.left-topic-button {
+  height: 100px;
+  width: 150px;
+}
+
+.left-topic-button-and-text p {
+margin-left: 1rem;
+width: 100%;
+} 
+
+.right-sub-topics {
+  width: 60vw;
+  border-radius: 5px;
+  border: 2px solid black;
+  background-color: cornsilk;
+  overflow: scroll;
+  padding: 1rem;
+}
+
+.sub-topic-container {
+  border-radius: 5px;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: rgb(139, 139, 218);
+}
+
+.selected {
+  border: 5px solid rgb(255, 125, 125) ;
+}
+
+.disabled {
+  cursor: no-drop; /* Indicate element is not clickable */
+  pointer-events: none; 
+}
+
+.loading {
+  cursor: no-drop; /* Indicate element is not clickable */
+  pointer-events: none; 
+  background-color: grey;
+  animation: flash 0.8s alternate infinite;
+  z-index: 2; /* Animation properties */
+}
+
+@keyframes flash {
+  from { color: rgb(67, 67, 67) } /* Start from white */
+  to { color: rgb(192, 192, 192); } /* Animate to lightgrey */
 }
