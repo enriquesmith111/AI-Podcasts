@@ -52,7 +52,7 @@ exports.handler = async (event, context) => {
                         ]
                     }`,
                 },
-                { role: "user", message },
+                { role: "user", content: message },
                 ],
                 max_tokens: 600,
             }),
