@@ -14,7 +14,7 @@ exports.handler = async (event, context) => {
         headers: {
             'Content-Type': 'application/json',
             // Adjust CORS headers based on your deployment setup
-            // 'Access-Control-Allow-Origin': 'http://localhost:3000/',
+            'Access-Control-Allow-Origin': 'https://main--ai-podcasts.netlify.app',
         },
         body: '',
     };

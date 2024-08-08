@@ -15,7 +15,7 @@ exports.handler = async (event, context) => {
         statusCode: 200,
         headers: {
             'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': 'http://localhost:3000/',
+            'Access-Control-Allow-Origin': 'https://main--ai-podcasts.netlify.app',
         },
         body: '',
     };
