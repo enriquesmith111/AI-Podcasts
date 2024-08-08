@@ -61,7 +61,8 @@ exports.handler = async (event, context) => {
 
         const response = await fetch('https://api.openai.com/v1/chat/completions', options);
         const data = await response.json();
-        res.send(data);
+        res.body = JSON.stringify(data);
+
     } catch (error) {
         console.error(error);
         // Consider returning a more informative error response to the frontend here
