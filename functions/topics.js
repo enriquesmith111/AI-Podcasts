@@ -22,7 +22,6 @@ exports.handler = async (event, context) => {
     };
 
     try {
-        const fetch = await import('node-fetch');
 
         const req = JSON.parse(event.body); // Parse the request body
         const message = req.message;
