@@ -11,8 +11,7 @@ app.use(bodyParser.json());
 // app.use(cors({ origin: 'http://localhost:3000/' }));
 
 exports.handler = async (event, context) => {
-
-    const req = event; // Access the request object from the event
+    const req = JSON.parse(event.body); // Parse the request body
     const message = req.message;
 
     const res = {
@@ -62,7 +61,6 @@ exports.handler = async (event, context) => {
         const response = await fetch('https://api.openai.com/v1/chat/completions', options);
         const data = await response.json();
         res.body = JSON.stringify(data);
-
     } catch (error) {
         console.error(error);
         // Consider returning a more informative error response to the frontend here
