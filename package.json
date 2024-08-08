@@ -10,6 +10,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "netlify": "^13.1.20",
     "netlify-lambda": "^2.0.16",
     "nodemon": "^3.1.4",
     "react": "^18.3.1",
@@ -19,8 +20,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start:topics": "nodemon topics.js",
-    "start:sub-topics": "nodemon sub-topics.js",
+    "start:topics": "nodemon functions/topics.js",
+    "start:sub-topics": "nodemon functions/sub-topics.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
