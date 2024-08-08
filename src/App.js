@@ -25,7 +25,8 @@ function App() {
     }
 
     try {
-      const response = await fetch('http://localhost:8001/sub-topics', options)
+      // const response = await fetch('http://localhost:8001/sub-topics', options)
+      const response = await fetch('https://ai-podcasts.netlify.app/.netlify/functions/sub-topics', options)
       const data = await response.json();
       const content = data?.choices[0]?.message?.content
       const jsonContent = JSON.parse(content)
@@ -54,7 +55,8 @@ function App() {
     }
 
     try {
-      const response = await fetch('http://localhost:8000/topics', options)
+      // const response = await fetch('http://localhost:8001/topics', options)
+      const response = await fetch('https://ai-podcasts.netlify.app/.netlify/functions/topics', options)
       const data = await response.json();
       const content = data?.choices[0]?.message?.content
       const jsonContent = JSON.parse(content)
