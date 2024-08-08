@@ -3,6 +3,9 @@ const cors = require('cors'); // Assuming you keep cors for frontend access
 const bodyParser = require('body-parser');
 require('dotenv').config(); // Assuming proper .env setup in Netlify
 
+app.use(cors({ origin: 'https://main--ai-podcasts.netlify.app' })); // Replace with your frontend origin
+
+
 const app = express();
 app.use(bodyParser.json());
 // Adjust CORS configuration if needed (consider using cors library for more control)

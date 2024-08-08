@@ -8,7 +8,7 @@ require('dotenv').config();
 const app = express();
 app.use(bodyParser.json());
 
-app.use(cors());
+app.use(cors({ origin: 'https://main--ai-podcasts.netlify.app' })); // Replace with your frontend origin
 
 exports.handler = async (event, context) => {
     const res = {
