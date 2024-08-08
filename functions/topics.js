@@ -13,6 +13,7 @@ app.use(bodyParser.json());
 exports.handler = async (event, context) => {
     const req = event; // Parse the request body
     const message = req.message;
+    console.log(message)
 
     const res = {
         statusCode: 200,
