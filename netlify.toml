@@ -4,4 +4,3 @@
 
 [functions]
   directory = "functions"  # Replace with your actual function directory
-  package = "./package.json"
