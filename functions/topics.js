@@ -11,6 +11,10 @@ app.use(bodyParser.json());
 // app.use(cors({ origin: 'http://localhost:3000/' }));
 
 exports.handler = async (event, context) => {
+
+    const req = JSON.parse(event.body); // Parse the request body
+    const message = req.message;
+
     const res = {
         statusCode: 200,
         headers: {
@@ -22,9 +26,6 @@ exports.handler = async (event, context) => {
     };
 
     try {
-
-        const req = JSON.parse(event.body); // Parse the request body
-        const message = req.message;
 
         const options = {
             method: 'POST',
