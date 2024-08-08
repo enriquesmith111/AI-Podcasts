@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 exports.handler = async (event, context) => {
 
-    const req = JSON.parse(event.body); // Parse the request body
+    const req = event; // Access the request object from the event
     const message = req.message;
 
     const res = {
