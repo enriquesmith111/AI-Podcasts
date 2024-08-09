@@ -31,7 +31,7 @@ function App() {
       const content = data?.choices[0]?.message?.content
       const jsonContent = JSON.parse(content)
       setScript(jsonContent);
-      console.log(script)
+      console.log(data)
     } catch (error) {
       console.error(error)
     } finally {
