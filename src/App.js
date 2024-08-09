@@ -73,7 +73,16 @@ function App() {
       <div className='header'>
         <h1>Podcast</h1>
         <div className='header-input'>
-          <input value={value} onChange={(e) => setValue(e.target.value)}></input>
+          <input
+            value={value}
+            placeholder='type a finance topic to talk about...'
+            onChange={(e) => setValue(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                handleCall()
+              }
+            }}
+          />
           <button onClick={handleCall}> Enter</button>
         </div>
       </div>
