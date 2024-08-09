@@ -21,7 +21,7 @@ exports.handler = async (event, context) => {
     };
 
     try {
-        console.log(`line 23 ${req.body}`)
+        console.log(`line 23 ${req.body.message}`)
         const options = {
             method: 'POST',
             headers: {
@@ -33,7 +33,7 @@ exports.handler = async (event, context) => {
                 response_format: { type: "json_object" },
                 messages: [{
                     role: "system",
-                    content: `I ask you a finance question and you provide JSON object with up to 5 topics for my 2 Person podcast in Spanish: 
+                    content: `I ask you a finance question and you provide JSON object with up to 5 topics for my 2 Person podcast: 
                     {
                         "topics": [
                             {
