@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 
 exports.handler = async (event, context) => {
     const req = event; // Parse the request body
-
+    console.log(event)
     const res = {
         statusCode: 200,
         headers: {
