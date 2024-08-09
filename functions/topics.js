@@ -7,8 +7,6 @@ const app = express();
 
 app.use(cors({ origin: 'https://ai-podcasts.netlify.app/' })); // Replace with your frontend origin
 app.use(bodyParser.json());
-// Adjust CORS configuration if needed (consider using cors library for more control)
-// app.use(cors({ origin: 'http://localhost:3000/' }));
 
 exports.handler = async (event, context) => {
     const req = event; // Parse the request body
@@ -53,7 +51,7 @@ exports.handler = async (event, context) => {
                         ]
                     }`,
                 },
-                { role: "user", content: message },
+                { role: "user", content: req.body.message },
                 ],
                 max_tokens: 600,
             }),
