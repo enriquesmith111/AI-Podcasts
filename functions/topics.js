@@ -22,7 +22,7 @@ exports.handler = async (event, context) => {
     };
 
     try {
-        console.log(`line 23 ${JSON.stringify(req.body.message)}`)
+        console.log(`line 23 ${JSON.stringify(req)}`)
         const options = {
             method: 'POST',
             headers: {
