@@ -8,7 +8,7 @@ app.use(cors({ origin: 'https://ai-podcasts.netlify.app/' })); // Replace with y
 
 exports.handler = async (event, context) => {
     const req = event; // Parse the request body
-    const message = req.body.message
+    const message = JSON.stringify(req.body.message);
     const res = {
         statusCode: 200,
         headers: {
