@@ -4,11 +4,12 @@ require('dotenv').config(); // Assuming proper .env setup in Netlify
 
 const app = express();
 
+app.use(express.json());
 app.use(cors({ origin: 'https://ai-podcasts.netlify.app/' })); // Replace with your frontend origin
 
 exports.handler = async (event, context) => {
     const req = event; // Parse the request body
-    const message = JSON.stringify(req.body.message);
+
     const res = {
         statusCode: 200,
         headers: {
@@ -47,7 +48,7 @@ exports.handler = async (event, context) => {
                         ]
                     }`,
                 },
-                { role: "user", content: message },
+                { role: "user", content: req.body.message },
                 ],
                 max_tokens: 600,
             }),
