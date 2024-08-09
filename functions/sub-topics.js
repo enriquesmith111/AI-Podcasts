@@ -1,13 +1,10 @@
-const express = require('express');
-const cors = require('cors');
+const express = require('express')
 const bodyParser = require('body-parser');
-const fetch = require('node-fetch');
-require('dotenv').config();
+const cors = require('cors'); // Assuming you keep cors for frontend access
+require('dotenv').config(); // Assuming proper .env setup in Netlify
 
-// Create the Express app instance
-const app = express();
 
-// Middleware setup
+const app = express()
 app.use(bodyParser.json());
 app.use(cors({ origin: 'https://ai-podcasts.netlify.app/' })); // Replace with your frontend origin
 
