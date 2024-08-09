@@ -20,7 +20,7 @@ exports.handler = async (event, context) => {
     };
 
     try {
-        console.log(`line 25 ${req}`)
+        console.log(`line 23 ${req.body.message}`)
         const options = {
             method: 'POST',
             headers: {
