@@ -9,9 +9,10 @@ app.use(bodyParser.json());
 app.use(cors({ origin: 'https://ai-podcasts.netlify.app/' })); // Replace with your frontend origin
 
 exports.handler = async (event, context) => {
-    console.log(event)
+    console.log(` line 12${event}`)
     const req = JSON.parse(event.body); // Parse the request body
     const message = req.message;
+    console.log(`line 15 ${message}`)
     console.log(message)
     const res = {
         statusCode: 200,
@@ -52,7 +53,7 @@ exports.handler = async (event, context) => {
     try {
         const response = await fetch('https://api.openai.com/v1/chat/completions', options)
         const data = await response.json();
-        res.send(data)
+        res.body = JSON.stringify(data);
     } catch (error) {
         console.error(error)
     }
