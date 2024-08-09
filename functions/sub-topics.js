@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
 require('dotenv').config();
 
@@ -7,7 +8,7 @@ require('dotenv').config();
 const app = express();
 
 // Middleware setup
-app.use(express.json());
+app.use(bodyParser.json());
 app.use(cors({ origin: 'https://ai-podcasts.netlify.app/' })); // Replace with your frontend origin
 
 exports.handler = async (event, context) => {
