@@ -1,15 +1,14 @@
 const express = require('express');
 const cors = require('cors'); // Assuming you keep cors for frontend access
-const bodyParser = require('body-parser');
 require('dotenv').config(); // Assuming proper .env setup in Netlify
 
 const app = express();
 
 app.use(cors({ origin: 'https://ai-podcasts.netlify.app/' })); // Replace with your frontend origin
-app.use(bodyParser.json());
 
 exports.handler = async (event, context) => {
     const req = event; // Parse the request body
+    const message = req.body.message
     const res = {
         statusCode: 200,
         headers: {
@@ -48,7 +47,7 @@ exports.handler = async (event, context) => {
                         ]
                     }`,
                 },
-                { role: "user", content: req.body.message.toString() },
+                { role: "user", content: message },
                 ],
                 max_tokens: 600,
             }),
