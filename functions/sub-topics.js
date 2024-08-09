@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 app.use(cors({ origin: 'https://ai-podcasts.netlify.app/' })); // Replace with your frontend origin
 
 exports.handler = async (event, context) => {
+    console.log(event)
     const req = JSON.parse(event.body); // Parse the request body
     const message = req.message;
     console.log(message)
