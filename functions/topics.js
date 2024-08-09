@@ -11,7 +11,6 @@ app.use(cors({ origin: 'https://ai-podcasts.netlify.app/' })); // Replace with y
 exports.handler = async (event, context) => {
     const req = JSON.parse(event.body); // Parse the request body
     const message = req.message; // Parse the request body
-    console.log(`line 14 ${message}`)
 
     const res = {
         statusCode: 200,
@@ -24,7 +23,6 @@ exports.handler = async (event, context) => {
     };
 
     try {
-        console.log(`line 23 ${req.body}`)
         const options = {
             method: 'POST',
             headers: {
@@ -52,7 +50,7 @@ exports.handler = async (event, context) => {
                     }`,
                 },
                 {
-                    role: "user", content: "bitcoin"
+                    role: "user", content: message
                 },
                 ],
                 max_tokens: 600,

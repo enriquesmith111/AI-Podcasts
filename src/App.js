@@ -13,7 +13,7 @@ function App() {
     setIsLoading(true); // Set loading to true before fetching
     setSelectedTopic(topic);
     const message = `${topic?.name}, ${topic?.description}`;
-    console.log(` line 16 ${message}`)
+
 
     const options = {
       method: 'POST',
