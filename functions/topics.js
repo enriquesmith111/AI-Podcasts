@@ -10,7 +10,6 @@ app.use(bodyParser.json());
 
 exports.handler = async (event, context) => {
     const req = event; // Parse the request body
-    console.log(req)
     const res = {
         statusCode: 200,
         headers: {
@@ -49,7 +48,7 @@ exports.handler = async (event, context) => {
                         ]
                     }`,
                 },
-                { role: "user", content: req.body.message },
+                { role: "user", content: req.body.message.toString() },
                 ],
                 max_tokens: 600,
             }),
