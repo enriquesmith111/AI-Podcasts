@@ -48,7 +48,9 @@ exports.handler = async (event, context) => {
                         ]
                     }`,
                 },
-                { role: "user", content: req.body.message },
+                {
+                    role: "user", content: "bitcoin"
+                },
                 ],
                 max_tokens: 600,
             }),
