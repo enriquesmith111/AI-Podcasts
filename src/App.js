@@ -14,7 +14,6 @@ function App() {
     setSelectedTopic(topic);
     const message = `${topic?.name}, ${topic?.description}`;
 
-
     const options = {
       method: 'POST',
       body: JSON.stringify({
