@@ -22,7 +22,7 @@ exports.handler = async (event, context) => {
     };
 
     try {
-
+        console.log(`line 25 ${req}`)
         const options = {
             method: 'POST',
             headers: {

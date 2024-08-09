@@ -13,6 +13,7 @@ function App() {
     setIsLoading(true); // Set loading to true before fetching
     setSelectedTopic(topic);
     const message = `${topic?.name}, ${topic?.description}`;
+    console.log(` line 16 ${message}`)
 
     const options = {
       method: 'POST',
@@ -43,7 +44,7 @@ function App() {
     setScript()
     setMessage()
     setIsLoading(true); // Set loading to true before fetching
-    console.log(value)
+    console.log(` line 47 ${message}`)
     const options = {
       method: 'POST',
       body: JSON.stringify({
